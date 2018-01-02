@@ -417,68 +417,14 @@
 
       
         
-          
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。</p>
-<p>RL是最符合AI本质的学习方式，与人一样，通过不断的与环境交互、尝试、试错、接收反馈、再去尝试等过程，来不断改进自身，真正具有自学习和成长能力。</p>
-<p>较为经典的例子是Atari游戏，RL比人玩的要好，同时在棋牌类游戏也有较多应用和进展，比如AlphaGo就用到了RL。当然也有其他应用，比如控制领域、机器人等。</p>
-<p>它的特点和不同点如下：</p>
-<ul>
-<li>无监督，只有反馈</li>
-<li>反馈会产生延迟</li>
-<li>是与时间有关的序列</li>
-<li>其行为会影响其后接收到的输入</li>
-</ul>
-<h2 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h2><h3 id="1-Reward"><a href="#1-Reward" class="headerlink" title="1. Reward"></a>1. Reward</h3><p>反馈。用于衡量做的好不好，是一个标量值。可简单的想象成游戏中的得分和失分，RL的目标就是最大化对应的累积反馈。</p>
-<p>很多时候，反馈会产生延迟，现在的行为很可能会在以后很长一段时间才有反馈，这有点儿像人类的学习，可能要学很久才会有所回报。</p>
-<h3 id="2-Agent-amp-amp-Environment"><a href="#2-Agent-amp-amp-Environment" class="headerlink" title="2. Agent &amp;&amp; Environment"></a>2. Agent &amp;&amp; Environment</h3><p><img src="/images/RL/Agent与Environment.png" alt="Agent与Environment"></p>
-<p>在时刻t，Agent（图中的大脑，可理解为RL学习者）</p>
-<ul>
-<li>接收对环境的观察O<sub>t</sub></li>
-<li>接收反馈R<sub>t</sub></li>
-<li>做出反应A<sub>t</sub></li>
-</ul>
-<p>在时刻t，Environment（图中的地球，可理解为环境）</p>
-<ul>
-<li>接收Agent做出的反应或称行为A<sub>t</sub></li>
-<li>产生下一时刻的观察O<sub>t+1</sub></li>
-<li>产生下一时刻的反馈R<sub>t+1</sub></li>
-</ul>
-<p><em>注意：t在环境阶段自增</em></p>
-<h3 id="3-State"><a href="#3-State" class="headerlink" title="3. State"></a>3. State</h3><p>状态。是历史的函数，历史是一串观察、反应、反馈序列H<sub>t</sub> = O<sub>1</sub>, R<sub>1</sub>, A<sub>1</sub>, …, A<sub>t-1</sub>, O<sub>t</sub>, R<sub>t</sub>。状态可用于决定下一时刻发生什么。</p>
-<ul>
-<li>环境状态：是环境的内部表示，用于产生下一时刻观察和反馈，通常对RL学习者不可见</li>
-<li>RL学习者状态：是Agent的内部表示，用于产生当前时刻的反应</li>
-<li>信息状态：包含历史中的所有有用信息，是马尔科夫状态，即下一时刻只与当前时刻有关，而与前面的时刻无关</li>
-</ul>
-<p>由此产生两类环境：</p>
-<ul>
-<li>全可观察：RL学习者直接观察到环境状态，O<sub>t</sub> = S<sub>t</sub>，信息状态 = 环境状态 = RL学习者状态，这即是马尔科夫决策过程MDP<br><img src="/images/RL/MDP中Agent与Environment.png" alt="MDP中Agent与Environment"></li>
-<li>部分可观察：RL学习者只能观察到部分的环境状态，此时RL学习者状态 != 环境状态，是部分可见马尔科夫决策过程POMDP</li>
-</ul>
-<h2 id="主要组成部分"><a href="#主要组成部分" class="headerlink" title="主要组成部分"></a>主要组成部分</h2><p>一个RL学习者（Agent），主要可由如下的一个或多个组成：</p>
-<ol>
-<li>Policy：是Agent的行为函数，从状态映射到反应。</li>
-<li>Value function：衡量当前状态加反应的好坏，从而用于选择下一个反应</li>
-<li>Model：Agent对环境的表示，用于预测环境下一时刻会怎么样</li>
-</ol>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>RL学习者可有如下几种分类：</p>
-<ul>
-<li>Value-Based：无Policy，只有Value Function</li>
-<li>Policy-Based：只有Policy，无Value Function</li>
-<li>Actor-Critic：同时考虑Policy和Value Function</li>
-<li>Model-Free：有Policy/Value Function，无Model</li>
-<li>Model-Based：有Policy/Value Function，有Model</li>
-</ul>
-<h2 id="主要问题"><a href="#主要问题" class="headerlink" title="主要问题"></a>主要问题</h2><ul>
-<li>Learning：学习。环境刚开始未知，Agent通过与环境的交互不断学习，提升自己的Policy</li>
-<li>Planning：计划。环境模型已知，通过计算提升Policy，例如推理、思考、搜索等</li>
-<li>Exploration：探索。探索新方法，找出环境中的更多信息</li>
-<li>Exploitation：利用。利用经验，使反馈最大化</li>
-<li>Prediction：预测。对未来做估计，给出Policy</li>
-<li>Control：控制。对未来做优化，找到最佳的Policy</li>
-</ul>
-
-          
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/25/RL学习笔记 Part-I/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -627,132 +573,16 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>用于解决动态连通图的连接性问题</p>
 </blockquote>
-<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>给定由N个对象构成的集合，并告知哪些对象之间是连通的，由此判断某两个对象之间是否连通。</p>
-<p><em>注：连通代表有路可达，而不一定直接相连</em></p>
-<p><img src="/images/union-find/连通性示例.png" alt="连通性示例"></p>
-<h3 id="抽象建模"><a href="#抽象建模" class="headerlink" title="抽象建模"></a>抽象建模</h3><ul>
-<li>将所有对象用序号标识，如0,1,2,3…</li>
-<li>Union 将告知的连通对象之间连通</li>
-<li>Find 判断某两个对象之间是否连通</li>
-</ul>
-<p><img src="/images/union-find/连通性抽象.png" alt="连通性抽象"></p>
-<h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><p>基本思想是，将连通图分割成N个最大连通子集，即每个子集内部的对象相互连通，而子集之间的对象互不连通，这样只需判断某两个对象是否在同一个子集中，便可判断其是否连通。</p>
-<p><img src="/images/union-find/最大连通子集.png" alt="最大连通子集"></p>
-<p>具体而言，根据不同的实现方式，可衍生出以下几种算法。</p>
-<h4 id="1-Quick-Find"><a href="#1-Quick-Find" class="headerlink" title="1. Quick-Find"></a>1. Quick-Find</h4><p>顾名思义，这是一个注重快速判断的算法。它将属于同一个子集的对象用同一个标号标识，而不同子集用不同标号标识，这时判断对象是否连通就等价于判断对象标号是否相等。</p>
-<p>实现思路</p>
-<ul>
-<li>整形N维数组id[]，存储N个对象所属的子集标号，下标为对象标识</li>
-<li>Union 合并分别包含p和q的子集，需将所有标号等于id[p]的都置为id[q]</li>
-<li>Find 判断p和q是否连通，即判断是否满足id[p]==id[q]</li>
-</ul>
-<p><img src="/images/union-find/QF实现图例.png" alt="QF 实现图例"></p>
-<p>伪代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化 function(int N)</span></span><br><span class="line">id = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">  id[i] = i; <span class="comment">// 每个对象在初始时各不连通，各成一个子集，用其下标标识 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Union function(int p, int q)</span></span><br><span class="line"><span class="keyword">int</span> pid = id[p];</span><br><span class="line"><span class="keyword">int</span> qid = id[q];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">&#123; </span><br><span class="line">  <span class="keyword">if</span> (id[i] == pid) </span><br><span class="line">    id[i] = qid; <span class="comment">// 将所有子集标识等于id[p]的改为id[q]</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Find function(int p, int q)</span></span><br><span class="line"><span class="keyword">return</span> id[p] == id[q]; <span class="comment">// 判断子集标识是否相同</span></span><br></pre></td></tr></table></figure>
-<p>这种算法虽然Find很快，但Union却非常慢，每次需要判断和改动的位置很多。一般来说，Union的次数要比Find的次数多很多，所以注重Union效率的提高会更实际一些。</p>
-<h4 id="2-Quick-Union"><a href="#2-Quick-Union" class="headerlink" title="2. Quick-Union"></a>2. Quick-Union</h4><p>这即是一个注重快速合并的算法， 不同于Quick-Find将子集内所有对象都用同一个标识表示，它将子集中的对象看成是树状结构，每个子集形成一棵树，子集中的对象都有父对象，根对象的父对象是其自身。</p>
-<p>此时，在N维数组中存储各对象的父对象标识，则对象i所在子集树的根为id[id[id[…id[i]…]]]，同一个根对应的所有对象是连通的。这样，Find时需判断对象的根是否相同，而Union时只需将一个子集树的根变为另一个子集树的孩子。可见，Union时只需要变更一个位置，而Find则取决于树的高度。</p>
-<p><img src="/images/union-find/QU实现图例.png" alt="QU 实现图例"></p>
-<p>伪代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Root function(int i)</span></span><br><span class="line"><span class="keyword">while</span> (i != id[i]) i = id[i]; <span class="comment">// 寻找根节点</span></span><br><span class="line"><span class="keyword">return</span> i;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Union function(int p, int q)</span></span><br><span class="line"><span class="keyword">int</span> i = root(p);</span><br><span class="line"><span class="keyword">int</span> j = root(q);</span><br><span class="line">id[i] = j; <span class="comment">// 将一颗子集树挂在另一颗子集树根上</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Find function(int p, int q)</span></span><br><span class="line"><span class="keyword">return</span> root(p) == root(q); <span class="comment">// 判断对象根节点是否相同</span></span><br></pre></td></tr></table></figure>
-<p>虽然这种算法的Union速度加快，但其速度仍取决于root的速度，即树的高度，因此可优化的地方还有很多。</p>
-<h4 id="3-Weighted-Quick-Union"><a href="#3-Weighted-Quick-Union" class="headerlink" title="3. Weighted Quick-Union"></a>3. Weighted Quick-Union</h4><p>这是一个基于QU的加权算法，它可有效降低树的高度，使root速度变快。</p>
-<p>其思想是，在每次Union合并子集树时，总是将小树的根挂在大树的根上，而不像QU中总是将前一个树的根挂在后一个树的根上。</p>
-<p><img src="/images/union-find/W-QU思想.png" alt="W-QU 思想"></p>
-<p>这就需要另外设置一个N维整形数组，用于存储以每个对象为根的树大小，这样在Union时便可比对子集树的大小。</p>
-<p>伪代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化 function(int N)</span></span><br><span class="line">sz = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 树大小数组</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">  sz[i] = <span class="number">1</span>; <span class="comment">// 初始时各对象自成一树，每棵树的大小为1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Union function(int p, int q)</span></span><br><span class="line"><span class="keyword">int</span> i = root(p);</span><br><span class="line"><span class="keyword">int</span> j = root(q);</span><br><span class="line"><span class="keyword">if</span> (sz[i] &lt; sz[j]) </span><br><span class="line">&#123;</span><br><span class="line">  id[i] = j;</span><br><span class="line">  sz[j] += sz[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line">  id[j] = i;</span><br><span class="line">  sz[i] += sz[j];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种算法带来的压缩树高度的效果是非常显著的，尤其是在对象个数较多时。</p>
-<p><img src="/images/union-find/W-QU优化效果.png" alt="W-QU优化效果.png"></p>
-<h4 id="4-Quick-Union-with-Path-Compression"><a href="#4-Quick-Union-with-Path-Compression" class="headerlink" title="4. Quick-Union with Path Compression"></a>4. Quick-Union with Path Compression</h4><p>这是一种基于QU的路径压缩优化算法，目的也是压缩树的高度。</p>
-<p>一种思想是，在每次寻找对象的根节点时，都将通往根节点的沿途各个节点直接挂在根节点下。代码实现可设置两个循环，先找根节点，再挂各节点。</p>
-<p><img src="/images/union-find/QU-PC思想.png" alt="QU-PC思想"></p>
-<p>另一种思想是，在每次寻找对象的根节点时，都将对象挂在其祖父对象上，再从祖父对象依次重复上述过程。则每次root会大致将路径长度压缩一半。</p>
-<p>伪代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Root function(int i)</span></span><br><span class="line"><span class="keyword">while</span> (i != id[i])</span><br><span class="line">&#123;</span><br><span class="line">  id[i] = id[id[i]];</span><br><span class="line">  i = id[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> i;</span><br></pre></td></tr></table></figure>
-<p>当然也可以将Weighted与Path Compression结合使用。</p>
-<h4 id="5-Weighted-Quick-Union-with-Path-Compression"><a href="#5-Weighted-Quick-Union-with-Path-Compression" class="headerlink" title="5. Weighted Quick-Union with Path Compression"></a>5. Weighted Quick-Union with Path Compression</h4><p>Weighted是在Union阶段，而Path Compression是在Root阶段，两者互不干扰，可结合使用，效果更好。</p>
-<p>伪代码（完整）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Weighted Quick-Union with Path Compression */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化 function(int N)</span></span><br><span class="line">id = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 父对象数组</span></span><br><span class="line">sz = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 树大小数组</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">&#123;</span><br><span class="line">  id[i] = i; </span><br><span class="line">  sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Root function(int i)</span></span><br><span class="line"><span class="keyword">while</span> (i != id[i])</span><br><span class="line">&#123; </span><br><span class="line">  id[i] = id[id[i]]; <span class="comment">// 采用Path Compression第二种思想</span></span><br><span class="line">  i = id[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> i;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Union function(int p, int q)</span></span><br><span class="line"><span class="keyword">int</span> i = root(p);</span><br><span class="line"><span class="keyword">int</span> j = root(q);</span><br><span class="line"><span class="keyword">if</span> (sz[i] &lt; sz[j]) <span class="comment">// 采用Weighted思想</span></span><br><span class="line">&#123;</span><br><span class="line">  id[i] = j;</span><br><span class="line">  sz[j] += sz[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line">  id[j] = i;</span><br><span class="line">  sz[i] += sz[j];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Find function(int p, int q)</span></span><br><span class="line"><span class="keyword">return</span> root(p) == root(q);</span><br></pre></td></tr></table></figure>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>现分析各算法的时间性能。</p>
-<ol>
-<li><p>Quick-Find<br>Union~O(N)，Find~O(1)</p>
-</li>
-<li><p>Quick-Union<br>Union~O(N)，Find~O(N)<br>主要耗时在root上</p>
-</li>
-<li><p>Weighted-QU<br>Union~O(logN)，Find~O(logN)<br>树的高度不会超过logN(以2为底)，考虑一个对象，其最开始树大小为1，每次其高度+1发生在其作为小树成员挂到大树根上，此时合并树的大小&gt;=2倍小树大小，而小树最多不会翻倍logN次，所以高度最高不会超过logN</p>
-</li>
-<li><p>QU + Path Compression<br>Union~O(logN)，Find~O(logN)<br><em>猜想：采用第二种思想时，每次可将路径压缩一半，则最终树的高度&lt;=logN？</em></p>
-</li>
-<li><p>Weighted-QU + Path Compression<br>&lt;= c(N+Mlog<em>N) 接近于线性<br>N表示对象个数，M表示Union次数<br>log</em>N表示N经过多少次log能到达1，如log<em>16=3, log</em>65536=4</p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Algorithm</th>
-<th style="text-align:center">Initialize</th>
-<th style="text-align:center">Union</th>
-<th style="text-align:center">Find</th>
-<th style="text-align:center">Worst-Case Time</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Quick-Find</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">MN</td>
-</tr>
-<tr>
-<td style="text-align:center">Quick-Union</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">MN</td>
-</tr>
-<tr>
-<td style="text-align:center">Weighted-QU</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">logN</td>
-<td style="text-align:center">logN</td>
-<td style="text-align:center">N + MlogN</td>
-</tr>
-<tr>
-<td style="text-align:center">QU + Path Compression</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">logN</td>
-<td style="text-align:center">logN</td>
-<td style="text-align:center">N + MlogN</td>
-</tr>
-<tr>
-<td style="text-align:center">Weighted-QU + Path Compression</td>
-<td style="text-align:center">N</td>
-<td style="text-align:center">log*N</td>
-<td style="text-align:center">log*N</td>
-<td style="text-align:center">N + Mlog*N</td>
-</tr>
-</tbody>
-</table>
-<p><em>注：Union和 Find列均指一次操作的最坏时间复杂度， Worst-Case Time表示 M次Union操作的最坏时间复杂度。</em></p>
-<h3 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h3><p>Union-Find 的一个典型应用是解决“渗透问题（Percolation）”</p>
-<p>N*N的网格，网格中每一块都以概率p开启（白色）或关闭（黑色），判断从顶层能否渗透到底层（可假想从顶层注水，只能流经白色区域，水能否到达底层，或者导体通电问题等）</p>
-<p><img src="/images/union-find/渗透问题示例.png" alt="渗透问题示例"></p>
-<p>将每个网格看成是一个对象，这类问题明显可转化为动态连通图连接性问题，但要注意几个问题。</p>
-<ol>
-<li>为避免循环，可将所有顶层节点与一个虚拟顶层节点相连，而将所有底层节点都与一个虚拟底层节点相连，这样只需判断两个虚拟节点是否连通。</li>
-<li>开启一个网格时，应连通它与周围四个节点中所有开启的节点。</li>
-<li>Backwash问题，在将所有底层节点与虚拟底层节点相连后，如果要判断一个节点（不一定是底层节点）是否与顶层节点相连时，它可能会通过虚拟底层节点向上寻找到路径，这显然不符合常理。<br>可有两种解决方式，一是取消使用底层虚拟节点，牺牲时间；二是带虚拟底层几点与不带虚拟底层节点两种模型结合使用，牺牲空间。</li>
-</ol>
-<p><img src="/images/union-find/渗透问题建模.png" alt="渗透问题建模"></p>
-<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>动态连通图问题可以是很多问题的抽象建模，如网络中计算机连接、社交中的朋友关系、数学集合中的元素等等，掌握Union-Find的各算法是非常有用的。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/14/Union-Find/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
