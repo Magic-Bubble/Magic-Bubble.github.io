@@ -5,9 +5,12 @@ categories: 技术修炼
 tags:
   - 算法
   - 图
+copyright: true
 ---
 
 > 用于解决动态连通图的连接性问题
+
+<!--more-->
 
 ### 问题描述
 
