@@ -104,22 +104,21 @@
 
 
 
-<meta name="description" content="引言Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。 RL是最符合AI本质的学习方式，与人一样，通过不断的与环境交互、尝试、试错、接收反馈、再去尝试等过程，来不断改进自身，真正具有自学习和成长能力。 较为经典的例子是Atari游戏，RL比人玩的要好，同时在棋牌类游戏也有较多应用和进展，比如AlphaGo就用到了">
+<meta name="description" content="引言Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。 RL是最符合AI本质的学习方式，与人一样，通过不断的与环境交互、尝试、试错、接收反馈、再去尝试等过程，来不断改进自身，真正具有自学习和成长能力。 较为经典的例子是Atari游戏，RL比人玩的要好，同时在棋牌类游戏也有较多应用和进展，比如AlphaGo就用到了R">
 <meta name="keywords" content="人工智能,机器学习,增强学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RL学习笔记 Part-I">
 <meta property="og:url" content="http://yoursite.com/2017/01/25/RL学习笔记 Part-I/index.html">
 <meta property="og:site_name" content="Bubble&#39;s Blog">
-<meta property="og:description" content="引言Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。 RL是最符合AI本质的学习方式，与人一样，通过不断的与环境交互、尝试、试错、接收反馈、再去尝试等过程，来不断改进自身，真正具有自学习和成长能力。 较为经典的例子是Atari游戏，RL比人玩的要好，同时在棋牌类游戏也有较多应用和进展，比如AlphaGo就用到了">
+<meta property="og:description" content="引言Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。 RL是最符合AI本质的学习方式，与人一样，通过不断的与环境交互、尝试、试错、接收反馈、再去尝试等过程，来不断改进自身，真正具有自学习和成长能力。 较为经典的例子是Atari游戏，RL比人玩的要好，同时在棋牌类游戏也有较多应用和进展，比如AlphaGo就用到了R">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.baidu.com">
 <meta property="og:image" content="http://yoursite.com/images/RL/Agent与Environment.png">
 <meta property="og:image" content="http://yoursite.com/images/RL/MDP中Agent与Environment.png">
-<meta property="og:updated_time" content="2018-01-02T13:03:41.364Z">
+<meta property="og:updated_time" content="2018-01-02T13:04:35.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RL学习笔记 Part-I">
-<meta name="twitter:description" content="引言Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。 RL是最符合AI本质的学习方式，与人一样，通过不断的与环境交互、尝试、试错、接收反馈、再去尝试等过程，来不断改进自身，真正具有自学习和成长能力。 较为经典的例子是Atari游戏，RL比人玩的要好，同时在棋牌类游戏也有较多应用和进展，比如AlphaGo就用到了">
-<meta name="twitter:image" content="https://www.baidu.com">
+<meta name="twitter:description" content="引言Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。 RL是最符合AI本质的学习方式，与人一样，通过不断的与环境交互、尝试、试错、接收反馈、再去尝试等过程，来不断改进自身，真正具有自学习和成长能力。 较为经典的例子是Atari游戏，RL比人玩的要好，同时在棋牌类游戏也有较多应用和进展，比如AlphaGo就用到了R">
+<meta name="twitter:image" content="http://yoursite.com/images/RL/Agent与Environment.png">
 
 
 
@@ -422,8 +421,7 @@
       
 
       
-        <p><img src="https://www.baidu.com" alt="百度"></p>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。</p>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。</p>
 <p>RL是最符合AI本质的学习方式，与人一样，通过不断的与环境交互、尝试、试错、接收反馈、再去尝试等过程，来不断改进自身，真正具有自学习和成长能力。</p>
 <p>较为经典的例子是Atari游戏，RL比人玩的要好，同时在棋牌类游戏也有较多应用和进展，比如AlphaGo就用到了RL。当然也有其他应用，比如控制领域、机器人等。</p>
 <p>它的特点和不同点如下：</p>
