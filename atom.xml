@@ -5,9 +5,9 @@
   <subtitle>Follow excellence&lt;br&gt;Success will chase you</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://magic-bubble.github.io/"/>
   <updated>2018-01-02T13:34:53.571Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://magic-bubble.github.io/</id>
   
   <author>
     <name>Magic Bubble</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>RL学习笔记 Part-I</title>
-    <link href="http://yoursite.com/2017/01/25/RL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Part-I/"/>
-    <id>http://yoursite.com/2017/01/25/RL学习笔记 Part-I/</id>
+    <link href="http://magic-bubble.github.io/2017/01/25/RL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20Part-I/"/>
+    <id>http://magic-bubble.github.io/2017/01/25/RL学习笔记 Part-I/</id>
     <published>2017-01-25T09:49:35.000Z</published>
     <updated>2018-01-02T13:34:53.571Z</updated>
     
@@ -31,21 +31,21 @@
     
     </summary>
     
-      <category term="专业来袭" scheme="http://yoursite.com/categories/%E4%B8%93%E4%B8%9A%E6%9D%A5%E8%A2%AD/"/>
+      <category term="专业来袭" scheme="http://magic-bubble.github.io/categories/%E4%B8%93%E4%B8%9A%E6%9D%A5%E8%A2%AD/"/>
     
     
-      <category term="人工智能" scheme="http://yoursite.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+      <category term="人工智能" scheme="http://magic-bubble.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://magic-bubble.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="增强学习" scheme="http://yoursite.com/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/"/>
+      <category term="增强学习" scheme="http://magic-bubble.github.io/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Union-Find</title>
-    <link href="http://yoursite.com/2017/01/14/Union-Find/"/>
-    <id>http://yoursite.com/2017/01/14/Union-Find/</id>
+    <link href="http://magic-bubble.github.io/2017/01/14/Union-Find/"/>
+    <id>http://magic-bubble.github.io/2017/01/14/Union-Find/</id>
     <published>2017-01-14T08:17:06.000Z</published>
     <updated>2018-01-02T13:35:02.483Z</updated>
     
@@ -59,12 +59,12 @@
     
     </summary>
     
-      <category term="技术修炼" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E4%BF%AE%E7%82%BC/"/>
+      <category term="技术修炼" scheme="http://magic-bubble.github.io/categories/%E6%8A%80%E6%9C%AF%E4%BF%AE%E7%82%BC/"/>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://magic-bubble.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+      <category term="图" scheme="http://magic-bubble.github.io/tags/%E5%9B%BE/"/>
     
   </entry>
   
