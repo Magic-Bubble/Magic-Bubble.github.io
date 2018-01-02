@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Excellence, Aal izz well" />
+  <meta name="keywords" content="算法,图," />
 
 
 
@@ -102,16 +102,29 @@
 
 
 
-<meta name="description" content="Follow excellenceSuccess will chase you">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bubble&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="用于解决动态连通图的连接性问题  问题描述给定由N个对象构成的集合，并告知哪些对象之间是连通的，由此判断某两个对象之间是否连通。 注：连通代表有路可达，而不一定直接相连  抽象建模 将所有对象用序号标识，如0,1,2,3… Union 将告知的连通对象之间连通 Find 判断某两个对象之间是否连通   算法描述基本思想是，将连通图分割成N个最大连通子集，即每个子集内部的对象相互连通，而子集之间的">
+<meta name="keywords" content="算法,图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Union-Find">
+<meta property="og:url" content="http://yoursite.com/2017/01/14/Union-Find/index.html">
 <meta property="og:site_name" content="Bubble&#39;s Blog">
-<meta property="og:description" content="Follow excellenceSuccess will chase you">
+<meta property="og:description" content="用于解决动态连通图的连接性问题  问题描述给定由N个对象构成的集合，并告知哪些对象之间是连通的，由此判断某两个对象之间是否连通。 注：连通代表有路可达，而不一定直接相连  抽象建模 将所有对象用序号标识，如0,1,2,3… Union 将告知的连通对象之间连通 Find 判断某两个对象之间是否连通   算法描述基本思想是，将连通图分割成N个最大连通子集，即每个子集内部的对象相互连通，而子集之间的">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/union-find/连通性示例.png">
+<meta property="og:image" content="http://yoursite.com/images/union-find/连通性抽象.png">
+<meta property="og:image" content="http://yoursite.com/images/union-find/最大连通子集.png">
+<meta property="og:image" content="http://yoursite.com/images/union-find/QF实现图例.png">
+<meta property="og:image" content="http://yoursite.com/images/union-find/QU实现图例.png">
+<meta property="og:image" content="http://yoursite.com/images/union-find/W-QU思想.png">
+<meta property="og:image" content="http://yoursite.com/images/union-find/W-QU优化效果.png">
+<meta property="og:image" content="http://yoursite.com/images/union-find/QU-PC思想.png">
+<meta property="og:image" content="http://yoursite.com/images/union-find/渗透问题示例.png">
+<meta property="og:image" content="http://yoursite.com/images/union-find/渗透问题建模.png">
+<meta property="og:updated_time" content="2018-01-02T12:42:01.235Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bubble&#39;s Blog">
-<meta name="twitter:description" content="Follow excellenceSuccess will chase you">
+<meta name="twitter:title" content="Union-Find">
+<meta name="twitter:description" content="用于解决动态连通图的连接性问题  问题描述给定由N个对象构成的集合，并告知哪些对象之间是连通的，由此判断某两个对象之间是否连通。 注：连通代表有路可达，而不一定直接相连  抽象建模 将所有对象用序号标识，如0,1,2,3… Union 将告知的连通对象之间连通 Find 判断某两个对象之间是否连通   算法描述基本思想是，将连通图分割成N个最大连通子集，即每个子集内部的对象相互连通，而子集之间的">
+<meta name="twitter:image" content="http://yoursite.com/images/union-find/连通性示例.png">
 
 
 
@@ -139,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/14/Union-Find/"/>
 
 
 
 
 
-  <title> Bubble's Blog </title>
+  <title> Union-Find | Bubble's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -166,9 +179,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -292,215 +303,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/25/RL学习笔记 Part-I/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Magic Bubble">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Bubble's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Bubble's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/25/RL学习笔记 Part-I/" itemprop="url">
-                  RL学习笔记 Part-I
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-25T17:49:35+08:00">
-                2017-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/专业来袭/" itemprop="url" rel="index">
-                    <span itemprop="name">专业来袭</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/25/RL学习笔记 Part-I/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/25/RL学习笔记 Part-I/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Reinforcement Learning，简称RL，又称增强学习、强化学习等，是机器学习的一个分支，与有监督学习和无监督学习齐名。</p>
-<p>RL是最符合AI本质的学习方式，与人一样，通过不断的与环境交互、尝试、试错、接收反馈、再去尝试等过程，来不断改进自身，真正具有自学习和成长能力。</p>
-<p>较为经典的例子是Atari游戏，RL比人玩的要好，同时在棋牌类游戏也有较多应用和进展，比如AlphaGo就用到了RL。当然也有其他应用，比如控制领域、机器人等。</p>
-<p>它的特点和不同点如下：</p>
-<ul>
-<li>无监督，只有反馈</li>
-<li>反馈会产生延迟</li>
-<li>是与时间有关的序列</li>
-<li>其行为会影响其后接收到的输入</li>
-</ul>
-<h2 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h2><h3 id="1-Reward"><a href="#1-Reward" class="headerlink" title="1. Reward"></a>1. Reward</h3><p>反馈。用于衡量做的好不好，是一个标量值。可简单的想象成游戏中的得分和失分，RL的目标就是最大化对应的累积反馈。</p>
-<p>很多时候，反馈会产生延迟，现在的行为很可能会在以后很长一段时间才有反馈，这有点儿像人类的学习，可能要学很久才会有所回报。</p>
-<h3 id="2-Agent-amp-amp-Environment"><a href="#2-Agent-amp-amp-Environment" class="headerlink" title="2. Agent &amp;&amp; Environment"></a>2. Agent &amp;&amp; Environment</h3><p><img src="/images/RL/Agent与Environment.png" alt="Agent与Environment"></p>
-<p>在时刻t，Agent（图中的大脑，可理解为RL学习者）</p>
-<ul>
-<li>接收对环境的观察O<sub>t</sub></li>
-<li>接收反馈R<sub>t</sub></li>
-<li>做出反应A<sub>t</sub></li>
-</ul>
-<p>在时刻t，Environment（图中的地球，可理解为环境）</p>
-<ul>
-<li>接收Agent做出的反应或称行为A<sub>t</sub></li>
-<li>产生下一时刻的观察O<sub>t+1</sub></li>
-<li>产生下一时刻的反馈R<sub>t+1</sub></li>
-</ul>
-<p><em>注意：t在环境阶段自增</em></p>
-<h3 id="3-State"><a href="#3-State" class="headerlink" title="3. State"></a>3. State</h3><p>状态。是历史的函数，历史是一串观察、反应、反馈序列H<sub>t</sub> = O<sub>1</sub>, R<sub>1</sub>, A<sub>1</sub>, …, A<sub>t-1</sub>, O<sub>t</sub>, R<sub>t</sub>。状态可用于决定下一时刻发生什么。</p>
-<ul>
-<li>环境状态：是环境的内部表示，用于产生下一时刻观察和反馈，通常对RL学习者不可见</li>
-<li>RL学习者状态：是Agent的内部表示，用于产生当前时刻的反应</li>
-<li>信息状态：包含历史中的所有有用信息，是马尔科夫状态，即下一时刻只与当前时刻有关，而与前面的时刻无关</li>
-</ul>
-<p>由此产生两类环境：</p>
-<ul>
-<li>全可观察：RL学习者直接观察到环境状态，O<sub>t</sub> = S<sub>t</sub>，信息状态 = 环境状态 = RL学习者状态，这即是马尔科夫决策过程MDP<br><img src="/images/RL/MDP中Agent与Environment.png" alt="MDP中Agent与Environment"></li>
-<li>部分可观察：RL学习者只能观察到部分的环境状态，此时RL学习者状态 != 环境状态，是部分可见马尔科夫决策过程POMDP</li>
-</ul>
-<h2 id="主要组成部分"><a href="#主要组成部分" class="headerlink" title="主要组成部分"></a>主要组成部分</h2><p>一个RL学习者（Agent），主要可由如下的一个或多个组成：</p>
-<ol>
-<li>Policy：是Agent的行为函数，从状态映射到反应。</li>
-<li>Value function：衡量当前状态加反应的好坏，从而用于选择下一个反应</li>
-<li>Model：Agent对环境的表示，用于预测环境下一时刻会怎么样</li>
-</ol>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>RL学习者可有如下几种分类：</p>
-<ul>
-<li>Value-Based：无Policy，只有Value Function</li>
-<li>Policy-Based：只有Policy，无Value Function</li>
-<li>Actor-Critic：同时考虑Policy和Value Function</li>
-<li>Model-Free：有Policy/Value Function，无Model</li>
-<li>Model-Based：有Policy/Value Function，有Model</li>
-</ul>
-<h2 id="主要问题"><a href="#主要问题" class="headerlink" title="主要问题"></a>主要问题</h2><ul>
-<li>Learning：学习。环境刚开始未知，Agent通过与环境的交互不断学习，提升自己的Policy</li>
-<li>Planning：计划。环境模型已知，通过计算提升Policy，例如推理、思考、搜索等</li>
-<li>Exploration：探索。探索新方法，找出环境中的更多信息</li>
-<li>Exploitation：利用。利用经验，使反馈最大化</li>
-<li>Prediction：预测。对未来做估计，给出Policy</li>
-<li>Control：控制。对未来做优化，找到最佳的Policy</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -533,10 +338,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/01/14/Union-Find/" itemprop="url">
-                  Union-Find
-                </a>
+                Union-Find
               
             
           </h1>
@@ -602,6 +404,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">
+			<i class="fa fa-file-o"></i> &nbsp;阅读次数<span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -616,9 +423,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>用于解决动态连通图的连接性问题</p>
 </blockquote>
 <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>给定由N个对象构成的集合，并告知哪些对象之间是连通的，由此判断某两个对象之间是否连通。</p>
@@ -742,37 +547,64 @@
 <p><img src="/images/union-find/渗透问题建模.png" alt="渗透问题建模"></p>
 <h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>动态连通图问题可以是很多问题的抽象建模，如网络中计算机连接、社交中的朋友关系、数学集合中的元素等等，掌握Union-Find的各算法是非常有用的。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/图/" rel="tag"># 图</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/25/RL学习笔记 Part-I/" rel="prev" title="RL学习笔记 Part-I">
+                RL学习笔记 Part-I <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -780,6 +612,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/14/Union-Find/"
+           data-title="Union-Find" data-url="http://yoursite.com/2017/01/14/Union-Find/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -799,8 +639,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/icon.jpg"
@@ -903,6 +752,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象建模"><span class="nav-number">2.</span> <span class="nav-text">抽象建模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-number">3.</span> <span class="nav-text">算法描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Quick-Find"><span class="nav-number">3.1.</span> <span class="nav-text">1. Quick-Find</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Quick-Union"><span class="nav-number">3.2.</span> <span class="nav-text">2. Quick-Union</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Weighted-Quick-Union"><span class="nav-number">3.3.</span> <span class="nav-text">3. Weighted Quick-Union</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Quick-Union-with-Path-Compression"><span class="nav-number">3.4.</span> <span class="nav-text">4. Quick-Union with Path Compression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Weighted-Quick-Union-with-Path-Compression"><span class="nav-number">3.5.</span> <span class="nav-text">5. Weighted Quick-Union with Path Compression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-number">4.</span> <span class="nav-text">算法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用举例"><span class="nav-number">5.</span> <span class="nav-text">应用举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结束语"><span class="nav-number">6.</span> <span class="nav-text">结束语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -1007,6 +872,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
