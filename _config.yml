@@ -95,6 +95,6 @@ tag_generator:
   per_page: 10
 
 live2d:
-  model: wanko
-  bottom: -30
+  model: hijiki
+  bottom: 50
   mobileShow: false
