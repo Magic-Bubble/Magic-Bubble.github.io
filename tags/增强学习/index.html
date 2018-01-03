@@ -119,6 +119,15 @@
 
 
 
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "2d663846"
+    });
+  daovoice('update');
+  </script>
+
+
 <meta name="description" content="Follow excellenceSuccess will chase you">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bubble&#39;s Blog">
@@ -941,9 +950,15 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
     return;
   }else
     if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
-  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/wanko.model.json", 0.5);});
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
 })();
 </script>
+
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
 
 
 </body>

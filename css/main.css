@@ -1850,7 +1850,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9ce242;
+  background: #4bb4ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2912,12 +2912,6 @@ hr {
     width: auto;
     text-align: center;
   }
-}
-body {
-  background: url("../images/wallhaven-254193.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
 }
 .posts-expand .post-body img {
   margin: auto;
